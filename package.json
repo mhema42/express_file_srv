@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "name": "express_file_srv",
+  "version": "1.0.0",
+  "description": "Express based web server for serving static files",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon .",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhema42/express_file_srv.git"
+  },
+  "author": "mhema@telia.com Mats Hemå",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhema42/express_file_srv/issues"
+  },
+  "homepage": "https://github.com/mhema42/express_file_srv#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
