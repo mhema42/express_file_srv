@@ -9,9 +9,11 @@ app.get("/", async (request, response) => {
     response.send(filebuf);
 });
 
-app.get("/main.css", async (request, response) => {
-    const filebuf = await fs.readFile("./files/main.css");
-    response.type("css");
+app.get("/:fileName", async (request, response) => {
+    const fileName = request.params.fileName;
+    const filebuf = await fs.readFile(`./files/${fileName}`);
+    const type = fileName.split(".")[1];
+    response.type(type); 
     response.send(filebuf);
 });
 
