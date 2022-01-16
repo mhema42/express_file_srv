@@ -1,3 +1,4 @@
+import e from "express";
 import express from "express";
 import fs from "fs/promises";
 
@@ -10,12 +11,19 @@ app.get("/", async (request, response) => {
 });
 
 app.get("/*", async (request, response) => {
-    const fileName = request.path;
-    console.log(fileName);
-    const filebuf = await fs.readFile(`./files/${fileName}`);
-    const type = fileName.split(".")[1];
-    response.type(type); 
-    response.send(filebuf);
+    try {
+        const fileName = request.path;
+        console.log(fileName);
+        const filebuf = await fs.readFile(`./files/${fileName}`);
+        const type = fileName.split(".")[1];
+        response.type(type); 
+        response.send(filebuf);
+    } catch (err) {
+        response.status(404).end();
+    }
 });
+
+// using express we can get the same result (and more) with this code
+// app.use(express.static("./files"));
 
 app.listen(5080);
